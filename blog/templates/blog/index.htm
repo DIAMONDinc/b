@@ -1,0 +1,27 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+
+<head>
+<title>начало index.htm</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}"/>
+</head>
+
+<body>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'blog:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No blog are available.</p>
+{% endif %}
+
+<!-- page content goes here -->
+
+</body>
+
+</html>
