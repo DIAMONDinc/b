@@ -43,14 +43,6 @@ def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list, }
     return render(request, 'blog/index.htm', context)
-'''def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    output = ', '.join([q.question_text for q in latest_question_list])
-    template = loader.get_template('blog/index.htm')
-    context = {
-        'latest_question_list': latest_question_list,
-    }
-    return HttpResponse(output), HttpResponse(template.render(context, request))'''
 
 
 def detail(request, question_id):
